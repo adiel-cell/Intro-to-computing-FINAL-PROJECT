@@ -245,94 +245,66 @@
     <!-- Sections -->
    <div id="about-me" class="section">
         <h2>About Me</h2>
-        <img src="https://scontent.fmnl22-1.fna.fbcdn.net/v/t39.30808-6/469070930_2747917275381328_6659742748935634372_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHdbLXerW4D8ybVED9kfzKtBPig5a0mmawE-KDlrSaZrG-aKl3R_q65a7Ce9yi05O1p0tP_uzVe51vOtseM9Gw8&_nc_ohc=hCRc3WQaP84Q7kNvgEl1rFz&_nc_zt=23&_nc_ht=scontent.fmnl22-1.fna&_nc_gid=AGzyv9PezMndQL-1vzQA6B7&oh=00_AYDYX6H6TM-hbw07NhLJJyEMx0RFzl2eFNVjPTHawLazvA&oe=67536711" src="" alt="Your photo" style="
-            display: block;
-            margin: 20px auto;
-            border: 5px solid neon-green;
-            border-radius: 50%;
-            width: 200px;
-            height: 200px;
-            object-fit: cover;
-        " />
-        <div style="text-align: center; margin-top: 20px; color: #333; font-family: Arial, sans-serif;">
-            
-            <h2 style="margin: 10px 0; text-align: left;">[Sedigo, Adiel E.]</h3>
-            <p style="margin: 5px 0;text-align: left;"><strong>Profession:</strong> [College student/BSIT-GD MAJOR]</p>
-            <p style="margin: 5px 0;text-align: left;"><strong>Email:</strong> <a href="mailto:your.email@example.com" style="color: #0066cc;">sedigoadiel@gmail.com</a></p>
-            <p style="margin: 5px 0;text-align: left;"><strong>Mobile:</strong> [9939928892]</p>
-            <div style="margin-top: 20px; padding: 10px; font-size: 1em; color: #666;text-align: left;">
-                <p>[A student in perpetual molino university, i'm a senior high school graduate and now a BSIT-GD college student learning fundementals in programming and introduction to computing. I want to one day become a capable programmer and web designer]</p>
-            </div>
-        </div>
-        <button class="close-btn" onclick="showMainView()">Close</button>
-       
- <div id="skills" class="section">
-        <h2>Skills</h2>
-        <p>Explore my skills and expertise.</p>
-        <button class="close-btn" onclick="showMainView()">Close</button>
+        <img src="https://scontent.fmnl22-1.fna.fbcdn.net/v/t39.30808-6/469070930_2747917275381328_6659742748935634372_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHdbLXerW4D8ybVED9kfzKtBPig5a0mmawE-KDlrSaZrG-aKl3R_q65a7Ce9yi05O1p0tP_uzVe51vOtseM9Gw8&_nc_ohc=hCRc3WQaP84Q7kNvgElYkRwb26aOguL_7es7A4iqnxQxlF-RahXJlTbTg&_nc_ht=scontent.fmnl22-1.fna&oh=00_AfBtmA0vnKlRUfiM8Nz__DQIqA5yObfD5X_Uymvs6AW81g&oe=6517A9B4" alt="About Me" width="300">
+        <p>This is a section about me.</p>
+        <button class="close-btn" onclick="closeSection('about-me')">Close</button>
     </div>
-
+    <div id="skills" class="section">
+        <h2>Skills</h2>
+        <p>Learn about my skills here.</p>
+        <button class="close-btn" onclick="closeSection('skills')">Close</button>
+    </div>
     <div id="contact" class="section">
         <h2>Contact</h2>
-        <p>Reach out to me through the information provided here.</p>
-        <button class="close-btn" onclick="showMainView()">Close</button>
+        <p>Get in touch with me.</p>
+        <button class="close-btn" onclick="closeSection('contact')">Close</button>
     </div>
 
-    </div>
     <!-- Photo Gallery Section -->
-    <div id="photo-gallery" class="section">
-        <h2>Photo Gallery</h2>
-        <input type="text" id="image-search" placeholder="Search for images..." onkeyup="searchImages()">
-        <div id="gallery" class="gallery">
-            <!-- Gallery boxes will be dynamically added here -->
+    <div id="photo-gallery" class="section gallery">
+        <div class="gallery-box">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyB0E02ZW8f1KMZxtwMc7w-G66Cwe0fiAyWg&s" alt="Gallery Image 1">
+            <p>Image 1 description</p>
         </div>
-        <button class="close-btn" onclick="showMainView()">Back to Main</button>
+        <div class="gallery-box">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVj9D4DnoMk07zRx6Xeqxk6p6avbdIGcdqzzg&s" alt="Gallery Image 2">
+            <p>Image 2 description</p>
+        </div>
+        <div class="gallery-box">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYlJ5UysxHT9fNqG7RbESF8MjIRasYfhLjjg&s" alt="Gallery Image 3">
+            <p>Image 3 description</p>
+        </div>
+        <div class="gallery-box">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP4b2X-6TaWnRUtJ0wA0yBYpQlhEvwo0zxJw&s" alt="Gallery Image 4">
+            <p>Image 4 description</p>
+        </div>
     </div>
 
     <script>
-        // Functions
-        function showMainView() {
-            document.getElementById('main-view').style.display = 'block';
-            document.querySelectorAll('.section').forEach(section => {
-                section.classList.remove('active');
-            });
-        }
-
         function showSection(sectionId) {
-            document.getElementById('main-view').style.display = 'none';
-            document.querySelectorAll('.section').forEach(section => {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
                 section.classList.remove('active');
             });
-            document.getElementById(sectionId).classList.add('active');
+
+            // Show the clicked section
+            const section = document.getElementById(sectionId);
+            section.classList.add('active');
         }
 
-        function searchImages() {
-            const query = document.getElementById('image-search').value.toLowerCase();
-            const gallery = document.getElementById('gallery');
-            gallery.innerHTML = ''; // Clear previous search results
-            
-            if (query) {
-                // This is a mockup for demonstration purposes
-                const images = [
-                    { src: 'https://designs.raleighswebsitedesign.com/wp-content/uploads/2022/02/12064718/Website_Developer.jpg', description: 'Coding' },
-                    { src: 'https://signal.avg.com/hubfs/Blog_Content/Avg/Signal/AVG%20Signal%20Images/how_to_improve_your_gaming_pc_performance_2nd_refresh_signal/How_to_Improve_Your_Gaming_PC_Performance-Thumb.jpg', description: 'Gaming' },
-                    { src: 'https://www.basonlight.com/cdn/shop/articles/Gaming-Light-for-Your-Setup-BASON-Lighting_3cbfeda2-9ff2-444f-8d4d-989bf0746315.jpg?v=1695033820&width=1000', description: 'Future PC setup' },
-                    { src: 'https://www.betterteam.com/images/web-designer-job-description-6000x4000-2020128.jpeg?crop=1:1,smart&width=1200&dpr=2&format=pjpg&auto=webp&quality=85', description: 'Web desinger' }
-                ];
-                images.forEach(image => {
-                    const galleryBox = document.createElement('div');
-                    galleryBox.classList.add('gallery-box');
-                    galleryBox.innerHTML = `
-                        <img src="${image.src}" alt="${image.description}">
-                        <p>${image.description}</p>
-                    `;
-                    gallery.appendChild(galleryBox);
-                });
-            }
+        function closeSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            section.classList.remove('active');
         }
 
-        showMainView(); // Initialize the page with the main view
+        function showMainView() {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById('main-view').classList.add('active');
+        }
     </script>
 </body>
 </html>
-
