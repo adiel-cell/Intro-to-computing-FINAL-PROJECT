@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Boxes with Images</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f32727;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            padding: 40px 20px;
+            border: 5px solid rgb(255, 102, 0);
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/4/4e/Computer_keyboard.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            background-color: #575757;
+        }
+
+        .main-view {
+            display: block;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .interactive-boxes {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two columns layout */
+            gap: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .box {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            height: 300px; /* Ensures uniform height for all boxes */
+        }
+
+        .box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .box img {
+            max-width: 80%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .box h2 {
+            margin: 10px 0;
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .box p {
+            font-size: 1em;
+            color: #666;
+        }
+
+        .click-btn {
+            margin-top: auto;
+            padding: 10px 20px;
+            border: none;
+            background-color: #228b22;
+            color: white;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        .click-btn:hover {
+            background-color: #1e7b1e;
+        }
+
+        .section {
+            display: none;
+            padding: 20px;
+            text-align: center;
+            background-color: #f4f4f4;
+            opacity: 0;
+            transform: scale(0.95);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .section.active {
+            display: block;
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .close-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #d9534f;
+            color: white;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            background-color: #c9302c;
+        }
+
+        .upload-container {
+            margin-top: 20px;
+        }
+
+        .upload-container input[type="file"] {
+            padding: 10px;
+            background-color: #e7e7e7;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .uploaded-image {
+            margin-top: 20px;
+            max-width: 80%;
+            max-height: 400px;
+            border-radius: 10px;
+        }
+
+        /* Media Query for responsive design */
+        @media (max-width: 768px) {
+            .interactive-boxes {
+                grid-template-columns: 1fr; /* Stack boxes vertically on small screens */
+            }
+
+            .box {
+                height: auto; /* Remove fixed height on smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Interactive Website</h1>
+    </header>
+    <nav>
+        <a id="nav-home" onclick="showMainView()">Home</a>
+        <a id="nav-about-me" onclick="showSection('about-me')">About Me</a>
+        <a id="nav-skills" onclick="showSection('skills')">Skills</a>
+        <a id="nav-contact" onclick="showSection('contact')">Contact</a>
+        <a id="nav-photo-gallery" onclick="showSection('photo-gallery')">Photo Gallery</a> <!-- Added Photo Gallery Link -->
+    </nav>
+
+    <!-- Main Interactive Boxes -->
+    <div id="main-view" class="main-view">
+        <div class="interactive-boxes">
+            <div class="box" onclick="showSection('about-me')">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRv501qROXIU_LqNNg6rIclHtTGf3sNuqltOw&s" alt="About Me" width="190">
+                <h2>About Me</h2>
+                <p>Learn more about me.</p>
+                <button class="click-btn">Click Me</button>
+            </div>
+            <div class="box" onclick="showSection('skills')">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4sWVxAqQNYIgAFlz7vf65U6ejpuK6UXVjwQ&s" alt="Skills">
+                <h2>Skills</h2>
+                <p>Discover my skills.</p>
+                <button class="click-btn">Click Me</button>
+            </div>
+            <div class="box" onclick="showSection('contact')">
+                <img src="https://e7.pngegg.com/pngimages/277/785/png-clipart-computer-icons-google-play-android-google-contacts-others-miscellaneous-blue-thumbnail.png" alt="Contact" width="160" height="300">
+                <h2>Contact</h2>
+                <p>Get in touch with me.</p>
+                <button class="click-btn">Click Me</button>
+            </div>
+            <div class="box" onclick="showSection('photo-gallery')">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyGx033Pkz8FnWMTV2KR8sPM1f9E40miULew&s" alt="Photo Gallery">
+                <h2>Photo Gallery</h2>
+                <p>Explore my photo gallery.</p>
+                <button class="click-btn">Click Me</button>
+            </div> <!-- New Photo Gallery Box -->
+        </div>
+    </div>
+
+    <!-- Sections -->
+    <div id="about-me" class="section">
+        <h2>About Me</h2>
+        <img src="https://scontent.fmnl22-1.fna.fbcdn.net/v/t39.30808-6/469070930_2747917275381328_6659742748935634372_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHdbLXerW4D8ybVED9kfzKtBPig5a0mmawE-KDlrSaZrG-aKl3R_q65a7Ce9yi05O1p0tP_uzVe51vOtseM9Gw8&_nc_ohc=hCRc3WQaP84Q7kNvgEl1rFz&_nc_zt=23&_nc_ht=scontent.fmnl22-1.fna&_nc_gid=AGzyv9PezMndQL-1vzQA6B7&oh=00_AYDYX6H6TM-hbw07NhLJJyEMx0RFzl2eFNVjPTHawLazvA&oe=67536711" src="" alt="Your photo" style="
+            display: block;
+            margin: 20px auto;
+            border: 5px solid neon-green;
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+        " />
+        <div style="text-align: center; margin-top: 20px; color: #333; font-family: Arial, sans-serif;">
+            
+            <h2 style="margin: 10px 0; text-align: left;">[Sedigo, Adiel E.]</h3>
+            <p style="margin: 5px 0;text-align: left;"><strong>Profession:</strong> [College student/BSIT-GD MAJOR]</p>
+            <p style="margin: 5px 0;text-align: left;"><strong>Email:</strong> <a href="mailto:your.email@example.com" style="color: #0066cc;">sedigoadiel@gmail.com</a></p>
+            <p style="margin: 5px 0;text-align: left;"><strong>Mobile:</strong> [9939928892]</p>
+            <div style="margin-top: 20px; padding: 10px; font-size: 1em; color: #666;text-align: left;">
+                <p>[A student in perpetual molino university, i'm a senior high school graduate and now a BSIT-GD college student learning fundementals in programming and introduction to computing. I want to one day become a capable programmer and web designer]</p>
+            </div>
+        </div>
+        <button class="close-btn" onclick="showMainView()">Close</button>
+    </div>
+
+    <div id="skills" class="section">
+        <h2>Skills</h2>
+        <p>Explore my skills and expertise.</p>
+        <button class="close-btn" onclick="showMainView()">Close</button>
+    </div>
+
+    <div id="contact" class="section">
+        <h2>Contact</h2>
+        <p>Reach out to me through the information provided here.</p>
+        <button class="close-btn" onclick="showMainView()">Close</button>
+    </div>
+
+    <!-- New Photo Gallery Section -->
+    <div id="photo-gallery" class="section">
+        <h2>Photo Gallery</h2>
+        <p>Here are some photos showcasing my journey!</p>
+
+        <!-- Image Upload Form -->
+        <div class="upload-container">
+            <input type="file" id="imageUpload" onchange="previewImage()" />
+        </div>
+
+        <!-- Display Uploaded Image -->
+        <img id="uploadedImage" class="uploaded-image" style="display: none;" />
+    </div>
+
+
+    <script>
+        // Function to show the main interactive boxes
+        function showMainView() {
+            document.getElementById('main-view').style.display = 'block';
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => section.classList.remove('active'));
+        }
+
+        // Function to show a specific section and hide the main view
+        function showSection(sectionId) {
+            document.getElementById('main-view').style.display = 'none';
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => section.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        // Function to preview uploaded image in the Photo Gallery section
+        function previewImage() {
+            const fileInput = document.getElementById('imageUpload');
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                const uploadedImage = document.getElementById('uploadedImage');
+                uploadedImage.src = e.target.result;
+                uploadedImage.style.display = 'block'; // Show the image
+            };
+
+            if (file) {
+                reader.readAsDataURL(file); // Read the file as a data URL
+            }
+        }
+    </script>
+</body>
+</html>
