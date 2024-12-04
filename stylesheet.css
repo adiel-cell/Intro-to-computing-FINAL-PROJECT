@@ -1,0 +1,51 @@
+.background {
+    color: #C71585; /* Red-violet for text */
+}
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+.background {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.top {
+    background-color: #8A2BE2; /* Violet background for the top section */
+    color: #8A2BE2;
+    flex: 1;
+}
+.separator {
+    height: 5px;
+    background-color: white; /* Separator line remains white for contrast */
+}
+.bottom {
+    background-color: #C71585; /* Red-violet for the bottom section */
+    flex: 1;
+}
+.nav-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    background-color: #8A2BE2; /* Violet background for the navigation bar container */
+    margin: 20px;
+    border: 2px solid white;
+}
+.nav-bar {
+    display: flex;
+    gap: 15px;
+}
+.nav-item {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #C71585; /* Red-violet for the navigation items */
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+.nav-item:hover {
+    background-color: #e160b2; /* Violet hover effect for the navigation items */
+}
+
+ 

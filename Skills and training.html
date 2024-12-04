@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Sedigo Project</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .background {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .top {
+            background-color: black;
+            color: white;
+            flex: 1;
+        }
+        .separator {
+            height: 5px;
+            background-color: white;
+        }
+        .bottom {
+            background-color: gray;
+            flex: 1;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+            background-color: #222;
+            margin: 20px;
+            border: 2px solid white;
+        }
+        .nav-bar {
+            display: flex;
+            gap: 15px;
+        }
+        .nav-item {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #444;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .nav-item:hover {
+            background-color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="top">
+            <div class="nav-container">
+                <div class="nav-bar">
+                    <a href="#home" class="nav-item">Home</a>
+                    <a href="#personal-info" class="nav-item">Personal Info</a>
+                    <a href="#education" class="nav-item">Education</a>
+                    <a href="#skills-training" class="nav-item">Skills and Training</a>
+                    <a href="#projects" class="nav-item">Projects</a>
+                    <a href="#photo-gallery" class="nav-item">Photo Gallery</a>
+                    <a href="#feedback" class="nav-item">Feedback</a>
+                </div>
+            </div>
+        </div>
+        <div class="separator"></div>
+        <div class="bottom">
+            <!-- Content for the gray section -->
+        </div>
+    </div>
+</body>
+</html>
